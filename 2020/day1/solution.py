@@ -1,5 +1,5 @@
 
-def work():
+def part2():
     input_data = None
     with open("input.txt") as f:
         input_data = f.read()
@@ -20,4 +20,4 @@ def work():
                     return
 
 if __name__ == "__main__":
-    work()
+    part2()
