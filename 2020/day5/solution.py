@@ -4,7 +4,6 @@ def _calculateSeatRowColumn(boardingPass):
     # Calculate row
     rmin = 0
     rmax = 127
-    row = None
     for c in boardingPass[:7]:
         if c == 'F':
             # Update max, auto round down via int division
