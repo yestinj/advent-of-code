@@ -3,10 +3,13 @@ package day1;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.PriorityQueue;
+import java.util.Set;
 
-public class Main {
+public class Part2 {
 
   /*
    * https://adventofcode.com/2024/day/1
@@ -26,13 +29,20 @@ public class Main {
       rightList.add(Integer.parseInt(stringParts[1]));
     }
 
-    int sum = 0;
-    while (!leftList.isEmpty() && !rightList.isEmpty()) {
-      final Integer left = leftList.poll();
+    final Map<Integer, Integer> rightOccurrences = new HashMap<>();
+
+    while (!rightList.isEmpty()) {
       final Integer right = rightList.poll();
-      sum += Math.abs(left - right);
+      rightOccurrences.put(right, rightOccurrences.getOrDefault(right, 0) + 1);
     }
 
-    System.out.println("Sum: " + sum);
+    int similarity = 0;
+    while (!leftList.isEmpty()) {
+      final int left = leftList.poll();
+      final int occurrences = rightOccurrences.getOrDefault(left, 0);
+      similarity += left * occurrences;
+    }
+
+    System.out.println("Similarity: " + similarity);
   }
 }
