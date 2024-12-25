@@ -8,7 +8,7 @@ import java.util.List;
 public class Part1 {
 
   /*
-   * https://adventofcode.com/2024/day/3
+   * https://adventofcode.com/2024/day/4
    */
   public static void main(String[] args) throws IOException {
 
